@@ -1,5 +1,22 @@
 from tkinter import *
 expression = ""
+def press(num):
+    global expression
+    expression = expression +str(num)
+    equation.set(expression)
+def equal_press():
+  try:
+      global expression
+      total = str(eval(expression))
+      equation.set(total)
+      expression =""
+  except:
+      equation.set("error")
+      expression =""
+def clear():
+     global expression
+     expression = ""
+     equation.set("")
 if __name__ == "__main__":
  window = Tk()
  window.title("simple calculator")
@@ -25,6 +42,7 @@ if __name__ == "__main__":
  decimal  = Button(window,text=".",width=10,height=5,command = lambda:press("."))
  clear    = Button(window,text="clear",width=10,height=5,command = clear)
  ans      = Button(window,text="=",width=10,height=5,command = equal_press)
+ 
 button1.grid(row=120,column=100)
 button2.grid(row=120,column=120)
 button3.grid(row=120,column=140)
@@ -41,4 +59,6 @@ mult.grid(row=160,column=160)
 div.grid(row=140,column=160)
 clear.grid(row=220,column=100)
 ans.grid(row=200,column=140)
-decimal.grid(row=200,column=100)                  
+decimal.grid(row=200,column=100)
+
+window.mainloop()
