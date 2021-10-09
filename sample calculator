@@ -1,0 +1,10 @@
+from tkinter import *
+expression = ""
+if __name__ == "__main__":
+ window = Tk()
+ window.title("simple calculator")
+ window.geometry('270x150')
+ equation= StringVar()
+ e1= Entry(window,textvariable=equation)
+ e1.grid(column=4,ipadx=70)    
+ 
